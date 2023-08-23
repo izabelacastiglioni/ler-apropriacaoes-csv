@@ -1,0 +1,23 @@
+{
+  "runtimeTarget": {
+    "name": ".NETCoreApp,Version=v5.0",
+    "signature": ""
+  },
+  "compilationOptions": {},
+  "targets": {
+    ".NETCoreApp,Version=v5.0": {
+      "LerCsvApropriacoes.Dominio/1.0.0": {
+        "runtime": {
+          "LerCsvApropriacoes.Dominio.dll": {}
+        }
+      }
+    }
+  },
+  "libraries": {
+    "LerCsvApropriacoes.Dominio/1.0.0": {
+      "type": "project",
+      "serviceable": false,
+      "sha512": ""
+    }
+  }
+}
