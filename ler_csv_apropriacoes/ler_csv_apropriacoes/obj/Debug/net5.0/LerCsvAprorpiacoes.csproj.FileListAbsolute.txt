@@ -1,7 +1,3 @@
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.AssemblyInfoInputs.cache
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.AssemblyInfo.cs
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.csproj.CoreCompileInputs.cache
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvAprorpiacoes.exe
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvAprorpiacoes.dll.config
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvAprorpiacoes.deps.json
@@ -10,6 +6,7 @@ C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvAprorpiacoes.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\ref\LerCsvAprorpiacoes.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvAprorpiacoes.pdb
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\CsvHelper.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\Dapper.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\System.Configuration.ConfigurationManager.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\System.Data.SqlClient.dll
@@ -27,9 +24,12 @@ C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerApropriacoes.Data.pdb
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\LerCsvApropriacoes.Dominio.pdb
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.csproj.AssemblyReference.cache
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.AssemblyInfoInputs.cache
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.AssemblyInfo.cs
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.csproj.CoreCompileInputs.cache
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.csproj.CopyComplete
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\ref\LerCsvAprorpiacoes.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.pdb
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\obj\Debug\net5.0\LerCsvAprorpiacoes.genruntimeconfig.cache
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\ler_csv_apropriacoes\bin\Debug\net5.0\CsvHelper.dll

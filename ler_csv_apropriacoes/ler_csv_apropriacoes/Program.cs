@@ -10,13 +10,13 @@ namespace ler_csv_apropriacoes
         {
             Console.WriteLine("Iniciação de leitura de CSV de apropriações");
 
-            DateTime dataEventoInicial = new DateTime(2023, 08, 01);
+            DateTime dataEventoInicial = new DateTime(2023, 08, 28);
 
-            DateTime dataEventoFinal = new DateTime(2023, 08, 02);
+            DateTime dataEventoFinal = new DateTime(2023, 08, 31);
 
-            String mensagemErro = "%Não existe movimentacao anteriror.%";
+            String mensagemErro = "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%";
 
-            string arquivo = $"..\\..\\..\\..\\Arquivos\\WI_417947.csv";
+            string arquivo = $"..\\..\\..\\..\\Arquivos\\WI_420895.csv";
 
             var integrador = new IntegradorData(dataEventoInicial,dataEventoFinal, mensagemErro);
 

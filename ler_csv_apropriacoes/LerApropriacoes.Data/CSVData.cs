@@ -26,7 +26,9 @@ namespace LerApropriacoes.Data
             StreamWriter swMovimento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-movimento.sql");
             StreamWriter swParcela = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-parcela.sql");
             StreamWriter swEvento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-evento.sql");
+            StreamWriter swApropriacao = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-apropriacoes.sql");
             List<string> eventoIdAnterior = new List<string>();
+            List<string> identificadorAnterior = new List<string>();
 
             var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ";", PrepareHeaderForMatch = header => header.Header.ToLower() };
             using (var reader = new StreamReader(Arquivo, Encoding.UTF8))
@@ -54,13 +56,48 @@ namespace LerApropriacoes.Data
                                     swEvento.WriteLine($"DELETE FROM Evento WHERE Id = '{dist.EventoId}';");
                                     eventoIdAnterior.Add(dist.EventoId);
                                 }
+
+                                if(dist.TipoMovimento == "Baixa")
+                                {
+                                    if (!identificadorAnterior.Contains(dist.Identificador))
+                                    {
+                                        swApropriacao.WriteLine(dist.Identificador);
+                                       identificadorAnterior.Add(dist.Identificador);
+                                    }
+                                }
+                            }
+                            if ((mensagem == "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%") || (mensagem == "%A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.%"))
+                            {
+                                if ((dist.TipoMovimento == "Reemissao") || (dist.TipoMovimento == "Baixa"))
+                                {
+                                    swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{dist.MovimentoId}';");                                   
+
+                                    if (dist.TipoMovimento == "Baixa")
+                                    {
+                                        if (!eventoIdAnterior.Contains(dist.EventoId))
+                                        {
+                                            swParcela.WriteLine($"DELETE FROM Parcela WHERE EventoId = '{dist.EventoId}';");
+                                            swEvento.WriteLine($"DELETE FROM Evento WHERE Id = '{dist.EventoId}';");
+                                            eventoIdAnterior.Add(dist.EventoId);
+                                        }
+
+                                        if (!identificadorAnterior.Contains(dist.Identificador))
+                                        {
+                                            swApropriacao.WriteLine(dist.Identificador);
+                                            identificadorAnterior.Add(dist.Identificador);
+                                        }
+                                    }
+                                }
                             }
                         }
+                       
                     }
                 }
+                
                 swMovimento.Close();
                 swParcela.Close();
                 swEvento.Close();
+                swApropriacao.Close();
             }
 
             Console.WriteLine("Arquivo de deletar movimentação gerado com sucesso!!");

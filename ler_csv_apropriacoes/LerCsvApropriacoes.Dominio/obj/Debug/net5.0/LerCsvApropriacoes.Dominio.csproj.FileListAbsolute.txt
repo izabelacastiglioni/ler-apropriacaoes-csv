@@ -2,7 +2,6 @@ C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\bin\Debug\net5.0\LerCsvApropriacoes.Dominio.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\bin\Debug\net5.0\ref\LerCsvApropriacoes.Dominio.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\bin\Debug\net5.0\LerCsvApropriacoes.Dominio.pdb
-C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.csproj.AssemblyReference.cache
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.GeneratedMSBuildEditorConfig.editorconfig
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.AssemblyInfoInputs.cache
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.AssemblyInfo.cs
