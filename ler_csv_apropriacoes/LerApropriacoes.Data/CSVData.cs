@@ -30,7 +30,7 @@ namespace LerApropriacoes.Data
             List<string> eventoIdAnterior = new List<string>();
             List<string> identificadorAnterior = new List<string>();
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ";", PrepareHeaderForMatch = header => header.Header.ToLower() };
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ",", PrepareHeaderForMatch = header => header.Header.ToLower() };
             using (var reader = new StreamReader(Arquivo, Encoding.UTF8))
             using (var csv = new CsvReader(reader, config))
             {
@@ -50,41 +50,41 @@ namespace LerApropriacoes.Data
                             {
                                 swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{dist.MovimentoId}';");
 
-                                if (!eventoIdAnterior.Contains(dist.EventoId))
+                                if (!eventoIdAnterior.Contains(dist.EventoId.ToString()))
                                 {
                                     swParcela.WriteLine($"DELETE FROM Parcela WHERE EventoId = '{dist.EventoId}';");
                                     swEvento.WriteLine($"DELETE FROM Evento WHERE Id = '{dist.EventoId}';");
-                                    eventoIdAnterior.Add(dist.EventoId);
+                                    eventoIdAnterior.Add(dist.EventoId.ToString());
                                 }
 
                                 if(dist.TipoMovimento == "Baixa")
                                 {
-                                    if (!identificadorAnterior.Contains(dist.Identificador))
+                                    if (!identificadorAnterior.Contains(dist.Identificador.ToString()))
                                     {
-                                        swApropriacao.WriteLine(dist.Identificador);
-                                       identificadorAnterior.Add(dist.Identificador);
+                                        swApropriacao.WriteLine(dist.Identificador.ToString());
+                                       identificadorAnterior.Add(dist.Identificador.ToString());
                                     }
                                 }
                             }
                             if ((mensagem == "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%") || (mensagem == "%A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.%"))
                             {
-                                if ((dist.TipoMovimento == "Reemissao") || (dist.TipoMovimento == "Baixa"))
+                                if ((dist.TipoMovimento == "Reemissao") || (dist.TipoMovimento == "Baixa") || (dist.TipoMovimento == "CancelamentoParcela"))
                                 {
                                     swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{dist.MovimentoId}';");                                   
 
                                     if (dist.TipoMovimento == "Baixa")
                                     {
-                                        if (!eventoIdAnterior.Contains(dist.EventoId))
+                                        if (!eventoIdAnterior.Contains(dist.EventoId.ToString()))
                                         {
                                             swParcela.WriteLine($"DELETE FROM Parcela WHERE EventoId = '{dist.EventoId}';");
                                             swEvento.WriteLine($"DELETE FROM Evento WHERE Id = '{dist.EventoId}';");
-                                            eventoIdAnterior.Add(dist.EventoId);
+                                            eventoIdAnterior.Add(dist.EventoId.ToString());
                                         }
 
-                                        if (!identificadorAnterior.Contains(dist.Identificador))
+                                        if (!identificadorAnterior.Contains(dist.Identificador.ToString()))
                                         {
-                                            swApropriacao.WriteLine(dist.Identificador);
-                                            identificadorAnterior.Add(dist.Identificador);
+                                            swApropriacao.WriteLine(dist.Identificador.ToString());
+                                            identificadorAnterior.Add(dist.Identificador.ToString());
                                         }
                                     }
                                 }

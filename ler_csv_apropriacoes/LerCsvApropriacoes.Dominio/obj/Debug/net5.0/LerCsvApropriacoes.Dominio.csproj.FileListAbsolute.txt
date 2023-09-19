@@ -9,3 +9,4 @@ C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\ref\LerCsvApropriacoes.Dominio.dll
 C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.pdb
+C:\Users\IzabelaReisdeSouzaCa\source\repos\izabelacastiglioni\ler-apropriacaoes-csv\ler_csv_apropriacoes\LerCsvApropriacoes.Dominio\obj\Debug\net5.0\LerCsvApropriacoes.Dominio.csproj.AssemblyReference.cache
