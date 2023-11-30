@@ -10,13 +10,13 @@ namespace ler_csv_apropriacoes
         {
             Console.WriteLine("Iniciação de leitura de CSV de apropriações");
 
-            DateTime dataEventoInicial = new DateTime(2023, 09, 01);
+            DateTime dataEventoInicial = new DateTime(2023, 11, 01);
 
-            DateTime dataEventoFinal = new DateTime(2023, 09, 08);
+            DateTime dataEventoFinal = new DateTime(2023, 11, 28);
 
-            String mensagemErro = "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%";
+            String mensagemErro = "%A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.%";
 
-            string arquivo = $"..\\..\\..\\..\\Arquivos\\WI_422177.csv";
+            string arquivo = $"..\\..\\..\\..\\Arquivos\\formatado2.csv";
 
             var integrador = new IntegradorData(dataEventoInicial,dataEventoFinal, mensagemErro);
 
@@ -24,7 +24,7 @@ namespace ler_csv_apropriacoes
 
             var csv = new CSVData(arquivo);
 
-            await csv.LerArquivoCSV(eventos,mensagemErro,dataEventoInicial,dataEventoFinal);
+            await csv.LerArquivoCSV(eventos,dataEventoInicial,dataEventoFinal);
 
 
 
