@@ -21,16 +21,16 @@ namespace LerApropriacoes.Data
             Arquivo = arquivo;
         }
 
-        public async Task LerArquivoCSV(IEnumerable<EventoRecebido> eventoRecebidos,string mensagem,DateTime dataInicial,DateTime dataFinal)
+        public async Task LerArquivoCSV(IEnumerable<EventoRecebido> eventoRecebidos,DateTime dataInicial,DateTime dataFinal)
         {
-            StreamWriter swMovimento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-movimento.sql");
-            StreamWriter swParcela = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-parcela.sql");
-            StreamWriter swEvento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-evento.sql");
-            StreamWriter swApropriacao = new StreamWriter($"..\\..\\..\\..\\Scripts\\{mensagem}-{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-apropriacoes.sql");
+            StreamWriter swMovimento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-movimento.sql");
+            StreamWriter swParcela = new StreamWriter($"..\\..\\..\\..\\Scripts\\{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-parcela.sql");
+            StreamWriter swEvento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-evento.sql");
+            StreamWriter swApropriacao = new StreamWriter($"..\\..\\..\\..\\Scripts\\{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-apropriacoes.sql");
             List<string> eventoIdAnterior = new List<string>();
             List<string> identificadorAnterior = new List<string>();
 
-            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ",", PrepareHeaderForMatch = header => header.Header.ToLower() };
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ";", PrepareHeaderForMatch = header => header.Header.ToLower() };
             using (var reader = new StreamReader(Arquivo, Encoding.UTF8))
             using (var csv = new CsvReader(reader, config))
             {
@@ -46,7 +46,7 @@ namespace LerApropriacoes.Data
                       
                         if ((dist.ItemCertificado == evento.ItemCertificadoApolice) && (dist.Parcela == evento.NumeroParcela))
                         {
-                            if(mensagem == "%Não existe movimentacao anteriror.%")
+                            if(evento.MenssagemErro.Contains("Não existe movimentacao anteriror."))
                             {
                                 swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{dist.MovimentoId}';");
 
@@ -66,9 +66,9 @@ namespace LerApropriacoes.Data
                                     }
                                 }
                             }
-                            if ((mensagem == "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%") || (mensagem == "%A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.%"))
+                            if( (evento.MenssagemErro.Contains("Impossivel validar movimento de Apropriacao precedido de Cancelamento")) || (evento.MenssagemErro.Contains("A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.")))
                             {
-                                if ((dist.TipoMovimento == "Reemissao") || (dist.TipoMovimento == "Baixa") || (dist.TipoMovimento == "CancelamentoParcela"))
+                                if ((dist.TipoMovimento == "Reemissao") || (dist.TipoMovimento == "Baixa") || (dist.TipoMovimento == "CancelamentoParcela") || (dist.TipoMovimento == "CancelamentoAjusteParcela")||(dist.TipoMovimento == "CancelamentoPorDesapropriacao")||(dist.TipoMovimento== "AjusteParcela"))
                                 {
                                     swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{dist.MovimentoId}';");                                   
 
@@ -98,6 +98,40 @@ namespace LerApropriacoes.Data
                 swParcela.Close();
                 swEvento.Close();
                 swApropriacao.Close();
+            }
+
+            Console.WriteLine("Arquivo de deletar movimentação gerado com sucesso!!");
+
+        }
+
+
+        public async Task LerArquivoCSVDuplicadosPremio(DateTime dataInicial, DateTime dataFinal)
+        {
+            StreamWriter swMovimento = new StreamWriter($"..\\..\\..\\..\\Scripts\\{dataInicial.ToString("yyyy-MM-dd")}-a-{dataFinal.ToString("yyyy-MM-dd")}-movimentoDuplicados.sql");
+         
+           List<string>  movimentosAnteriores  = new List<string>();
+            List<string> eventosAnteriores = new List<string>();
+
+            var config = new CsvConfiguration(CultureInfo.InvariantCulture) { Delimiter = ",", PrepareHeaderForMatch = header => header.Header.ToLower() };
+            using (var reader = new StreamReader(Arquivo, Encoding.UTF8))
+            using (var csv = new CsvReader(reader, config))
+            {
+
+                var records = csv.GetRecords<MovimentacaoPremio>().ToList();
+
+                var duplicados = records.GroupBy(x => new { x.ItemCertificado, x.Parcela, x.TipoMovimento }).SelectMany(g => g.Skip(1)); ;
+
+                foreach (var duplicado in duplicados)
+                {             
+                    
+                        swMovimento.WriteLine($"DELETE Movimento WHERE Id = '{duplicado.MovimentoId}';");                      
+                       
+                    
+                                      
+                }
+
+                swMovimento.Close();
+                        
             }
 
             Console.WriteLine("Arquivo de deletar movimentação gerado com sucesso!!");

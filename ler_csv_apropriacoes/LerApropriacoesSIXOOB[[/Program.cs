@@ -12,11 +12,11 @@ namespace LerApropriacoesSIXOOB__
 
             String seguradora = "SICOOB";
 
-            DateTime dataEventoInicial = new DateTime(2023, 09, 05);
+            DateTime dataEventoInicial = new DateTime(2023, 11, 01);
 
-            DateTime dataEventoFinal = new DateTime(2023, 09, 05);
+            DateTime dataEventoFinal = new DateTime(2023, 11, 28);
 
-            String mensagemErro = "%Não existe movimentacao anteriror.%";
+            String mensagemErro = "%Impossivel validar movimento de Apropriacao precedido de Cancelamento%";
             
             var integrador = new IntegradorData(dataEventoInicial, dataEventoFinal, mensagemErro);
 

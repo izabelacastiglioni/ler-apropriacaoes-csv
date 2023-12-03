@@ -12,19 +12,25 @@ namespace ler_csv_apropriacoes
 
             DateTime dataEventoInicial = new DateTime(2023, 11, 01);
 
-            DateTime dataEventoFinal = new DateTime(2023, 11, 28);
+            DateTime dataEventoFinal = new DateTime(2023, 11, 31);
+
+            String seguradora = "MAG";
 
             String mensagemErro = "%A soma do Valor de contribuição e do desconto não corresponde ao valor de contribuição emitido.%";
 
-            string arquivo = $"..\\..\\..\\..\\Arquivos\\formatado2.csv";
+            //string arquivo = $"..\\..\\..\\..\\Arquivos\\formatado2.csv";
 
             var integrador = new IntegradorData(dataEventoInicial,dataEventoFinal, mensagemErro);
 
             var eventos = await integrador.ListarEventos();
 
-            var csv = new CSVData(arquivo);
+            var premio = new PremioData();
 
-            await csv.LerArquivoCSV(eventos,dataEventoInicial,dataEventoFinal);
+            await premio.GerarArquivosCorrecao(eventos, mensagemErro, dataEventoInicial, dataEventoFinal, seguradora);
+
+            // var csv = new CSVData(arquivo);
+
+            //await csv.LerArquivoCSV(eventos,dataEventoInicial,dataEventoFinal);
 
 
 

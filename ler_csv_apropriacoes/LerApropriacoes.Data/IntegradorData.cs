@@ -36,20 +36,21 @@ namespace LerApropriacoes.Data
 
                 var sql = @"select distinct
 		                            JSON_VALUE(x.value,'$.parcelaId.identificadorCobertura ') as ItemCertificadoApolice,
-		                            JSON_VALUE(x.value,'$.parcelaId.numeroParcela ') as NumeroParcela
+		                            JSON_VALUE(x.value,'$.parcelaId.numeroParcela ') as NumeroParcela,
+                                    ler.Mensagem as MenssagemErro
 		                            from LogEventoRecebido ler
                                     inner join EventoRecebido er on er.Identificador = ler.Identificador
                                     cross apply openjson(DadosEvento,'$.parcelas') x
                                     where     StatusEventoLogado = 1
                                     and er.StatusId=5     
                                     and cast(er.DataEvento as date) between @dataEventoInicial and @dataEventoFinal
-                                    and Mensagem like @mensagemErro
-                                    ";
+                                   ";
 
                 //var eventos = await connection.QueryAsync<EventoRecebido>(sql, new { dataEventoInicial = DataEventoInicial.ToString("yyyy-MM-dd"), dataEventoFinal = DataEventoFinal.ToString("yyyy-MM-dd"), mensagemErro = MensagemErro}, commandTimeout: 100000);
                 var eventos = await connection.QueryAsync<EventoRecebido>(sql, new { dataEventoInicial = DataEventoInicial.ToString("yyyy-MM-dd"), dataEventoFinal = DataEventoFinal.ToString("yyyy-MM-dd"), mensagemErro = MensagemErro }, commandTimeout: 100000);
 
 
+                
                 return eventos;
 
             }
